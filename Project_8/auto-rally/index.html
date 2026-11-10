@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#171523">
+  <meta name="description" content="A tiny, offline-ready dusk race around the bazaar loop.">
+  <title>Auto Rally — Chotu on the Bazaar Loop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="race" aria-label="Auto Rally game scene"></canvas>
+
+    <header class="hud" id="hud" aria-live="polite" hidden>
+      <div class="hud-chip lap-chip"><span class="tiny-label">LAP</span><strong id="lapValue">1 <i>/ 3</i></strong></div>
+      <div class="hud-chip timer-chip"><span class="tiny-label">CLOCK</span><strong id="clockValue">00:00.00</strong></div>
+      <div class="hud-chip best-chip"><span class="tiny-label">BEST</span><strong id="bestValue">--:--.--</strong></div>
+      <div class="hud-chip coin-chip"><span class="coin-glyph">●</span><strong id="coinValue">0</strong></div>
+      <div class="hud-actions">
+        <button class="icon-button" id="soundButton" type="button" aria-label="Mute sound">♫</button>
+        <button class="icon-button pause-button" id="pauseButton" type="button" aria-label="Pause race">Ⅱ</button>
+      </div>
+    </header>
+
+    <div class="race-message" id="raceMessage" role="status" aria-live="polite"></div>
+    <div class="boost-badge" id="boostBadge" aria-live="polite" hidden>CHAI BOOST <span id="boostCount">1</span></div>
+    <div class="life-meter" id="lifeMeter" role="img" aria-label="3 lives remaining" hidden><span>LIVES</span><i class="pixel-heart"></i><i class="pixel-heart"></i><i class="pixel-heart"></i></div>
+
+    <section class="screen intro-screen" id="introScreen">
+      <div class="intro-card">
+        <p class="eyebrow"><span class="square"></span> AUTO RALLY <span class="eyebrow-muted">· POCKET RACE</span></p>
+        <h1>CHOTU<br><span>ON THE LOOP</span></h1>
+        <p class="intro-copy">Race Bunty and Pinky for three laps at golden hour. Every crash breaks a heart; lose all three and the race is over. Watch for cows and potholes, then bring it home to the arch.</p>
+        <div class="record-line"><span>YOUR BEST</span><strong id="introBest">NO TIME YET</strong></div>
+        <button class="start-button" id="startButton" type="button">START THE RACE <span aria-hidden="true">→</span></button>
+        <button class="text-button score-link" id="scoresButton" type="button">HIGH SCORES &amp; PREVIOUS TIMES ↗</button>
+        <div class="quick-controls"><span><kbd>←</kbd><kbd>→</kbd> steer</span><span><kbd>SPACE</kbd> turbo chai</span><span class="touch-hint">or use the big buttons</span></div>
+        <p class="offline-note"><span class="signal-dot"></span> READY TO RACE · NO DOWNLOADS NEEDED</p>
+      </div>
+      <div class="intro-art" aria-hidden="true"><span class="art-sun"></span><span class="art-garland garland-one"></span><span class="art-garland garland-two"></span><div class="art-road"></div><div class="art-rickshaw"><span class="auto-roof"></span><span class="auto-window"></span><span class="auto-face"><i></i><i></i></span><span class="auto-body"></span><span class="auto-wheel wheel-a"></span><span class="auto-wheel wheel-b"></span></div><span class="art-sign">BAZAAR<br>LOOP</span></div>
+    </section>
+
+    <section class="screen pause-screen" id="pauseScreen" hidden>
+      <div class="dialog-card"><p class="eyebrow">PIT STOP · TAKE A BREATH</p><h2>Race paused</h2><p>Your clock is stopped. Returning home will end this run.</p><button class="start-button" id="resumeButton" type="button">BACK TO THE RACE <span aria-hidden="true">→</span></button><button class="text-button" id="restartButton" type="button">Restart this race</button><button class="text-button home-link" id="pauseHomeButton" type="button">Back to home</button></div>
+    </section>
+
+    <section class="screen finish-screen" id="finishScreen" hidden>
+      <div class="dialog-card finish-card"><p class="eyebrow" id="finishEyebrow">THAT'S THREE LAPS · NICELY DONE</p><h2 id="finishTitle">Arch crossed!</h2><div class="finish-time" id="finishTime">00:00.00</div><p class="finish-detail" id="finishDetail">The bazaar is still arguing about the cow.</p><div class="podium-wrap"><h3>FINISH ORDER</h3><ol class="podium-list" id="finishStandings"></ol></div><button class="start-button" id="raceAgainButton" type="button">RACE AGAIN <span aria-hidden="true">↻</span></button><button class="text-button home-link" id="finishHomeButton" type="button">Back to home</button><p class="saved-note">BEST TIME SAVED ON THIS DEVICE</p></div>
+    </section>
+
+    <section class="screen game-over-screen" id="gameOverScreen" hidden>
+      <div class="dialog-card finish-card game-over-card"><p class="eyebrow">THREE HEARTS GONE · THAT'S THE RACE</p><h2>Out of lives!</h2><p class="game-over-best">HIGH SCORE <strong id="gameOverBest">NO FINISH YET</strong></p><p class="finish-detail" id="gameOverDetail">You picked up 0 coins before the last bump.</p><div class="podium-wrap"><h3>RACE STANDINGS</h3><ol class="podium-list" id="gameOverStandings"></ol></div><button class="start-button" id="gameOverAgainButton" type="button">TRY AGAIN <span aria-hidden="true">↻</span></button><button class="text-button home-link" id="gameOverHomeButton" type="button">Back to home</button></div>
+    </section>
+
+    <section class="screen score-screen" id="scoreScreen" hidden>
+      <div class="dialog-card score-card">
+        <p class="eyebrow">THE BAZAAR ARCH CLOCK</p><h2>Race records</h2>
+        <div class="score-columns">
+          <section class="score-section"><h3>HIGH SCORES <span>FASTEST</span></h3><ol class="score-list" id="highScores"></ol></section>
+          <section class="score-section"><h3>PREVIOUS RACES <span>NEWEST</span></h3><ol class="score-list" id="previousScores"></ol></section>
+        </div>
+        <p class="score-note">Completed three-lap races are saved on this device.</p>
+        <button class="start-button" id="scoresBackButton" type="button">BACK TO HOME <span aria-hidden="true">←</span></button>
+      </div>
+    </section>
+
+    <nav class="touch-controls" id="touchControls" aria-label="Touch driving controls" hidden>
+      <button class="drive-button steer-button" id="leftButton" type="button" aria-label="Steer left"><span>◀</span><small>LEFT</small></button>
+      <button class="drive-button boost-button" id="boostButton" type="button" aria-label="Use Turbo Chai"><span class="cup-icon">☕</span><small>TURBO</small></button>
+      <button class="drive-button steer-button" id="rightButton" type="button" aria-label="Steer right"><span>▶</span><small>RIGHT</small></button>
+    </nav>
+    <div class="speedometer" id="speedometer" hidden><span class="speed-dot"></span><span id="speedValue">48</span><small>KM/H</small></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

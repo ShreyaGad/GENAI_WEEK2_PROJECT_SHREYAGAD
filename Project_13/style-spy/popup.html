@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style Spy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="mark">SS</div>
+    <div><strong>Style Spy</strong><small>Page style inspector</small></div>
+    <span class="status-dot" title="Ready"></span>
+  </header>
+  <main>
+    <div class="page-row"><span class="eyebrow">CURRENT PAGE</span><span id="pageHost">Open a website</span></div>
+    <button id="scanButton" class="primary">Scan this page <span>↗</span></button>
+    <p id="message" class="message" aria-live="polite">Reads visible elements on the page you choose.</p>
+    <section class="section">
+      <div class="section-head"><h2>Colors</h2><span id="colorCount" class="count">0</span></div>
+      <div id="colors" class="swatches empty">Scan a page to find its palette.</div>
+    </section>
+    <section class="section">
+      <div class="section-head"><h2>Typography</h2><span id="fontCount" class="count">0</span></div>
+      <div id="fonts" class="font-list empty">Font families and styles will appear here.</div>
+    </section>
+    <section class="section save-section">
+      <h2>Save this kit</h2>
+      <div class="save-row"><input id="kitName" maxlength="48" placeholder="e.g. Editorial landing page" aria-label="Kit name"><button id="saveButton" class="secondary" disabled>Save</button></div>
+      <button id="exportButton" class="outline" disabled>Copy CSS variables</button>
+    </section>
+    <section class="section saved-section">
+      <div class="section-head"><h2>Saved kits</h2><span id="savedCount" class="count">0</span></div>
+      <div id="savedKits" class="saved-list empty">Your saved kits stay on this device.</div>
+    </section>
+  </main>
+  <footer>Click a swatch or font row to copy it.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

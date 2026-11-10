@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f4">
+  <meta name="description" content="KoalaPad turns your notes into cozy, hand-drawn notebook pages.">
+  <title>KoalaPad — your cozy notebook</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="KoalaPad home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M16 20c-8-8-14 0-10 11l8 13 8-5M48 20c8-8 14 0 10 11l-8 13-8-5"/><path d="M15 29c0-13 7-21 17-21s17 8 17 21v13c0 10-8 16-17 16s-17-6-17-16z"/><ellipse cx="25" cy="34" rx="2.2" ry="3"/><ellipse cx="39" cy="34" rx="2.2" ry="3"/><path d="M28 42c2 3 6 3 8 0M28 40c0-4 8-4 8 0 0 4-8 4-8 0z"/></svg></span>
+        <span><b>KoalaPad</b><small>your cozy notebook</small></span>
+      </a>
+      <div class="workspace-label">YOUR SPACE <button class="tiny-icon" id="addNote" title="Create a note" aria-label="Create a note">＋</button></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-route="home"><span>⌂</span> Home</a>
+        <a href="#editor" class="nav-link" data-route="editor"><span>✎</span> Note studio <kbd>⌘ 1</kbd></a>
+        <a href="#library" class="nav-link" data-route="library"><span>▤</span> My notebooks</a>
+        <a href="#decor" class="nav-link" data-route="decor"><span>✿</span> Sticker garden</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="helper-mini"><div class="koala-avatar small-koala">🐨</div><div><b>Need a paw?</b><small>Koji is here to help</small></div><button class="tiny-icon" data-open-assistant aria-label="Open Koji assistant">↗</button></div>
+        <div class="local-note"><span class="status-dot"></span> Saved on this device</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumbs"><span id="crumb">Home</span><span class="crumb-dot">·</span><span class="muted">A little space to think</span></div>
+        <div class="top-actions"><span class="save-state"><i></i><span id="saveState">All changes saved</span></span><button class="avatar-button" data-open-assistant aria-label="Chat with Koji">🐨</button></div>
+      </header>
+      <div id="appView" class="view-wrap"></div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="assistantModal" aria-hidden="true">
+    <section class="assistant-card" role="dialog" aria-modal="true" aria-labelledby="assistantTitle">
+      <button class="modal-close" data-close-assistant aria-label="Close">×</button>
+      <div class="assistant-head"><div class="koala-illustration">🐨<span>✦</span></div><div><div class="eyebrow">YOUR NOTE BUDDY</div><h2 id="assistantTitle">Hi, I’m Koji!</h2><p>Little ideas for making your notes feel like yours.</p></div></div>
+      <div class="suggestions"><button data-suggestion="Make my notes easier to revise">✦ Make this easier to revise</button><button data-suggestion="Suggest a cute page decoration">♡ Suggest a page decoration</button><button data-suggestion="Give me a tiny study break idea">☁ Tiny study break idea</button></div>
+      <div class="assistant-reply" id="assistantReply">I’m a tiny offline helper, so I can offer gentle prompts without sending your notes anywhere. 🌱</div>
+      <p class="fine-print">Koji works offline and never reads or uploads your notes.</p>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

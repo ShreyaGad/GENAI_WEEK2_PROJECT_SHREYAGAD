@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Goblin</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand-icon" aria-hidden="true">◉</div>
+    <div class="brand"><strong>Tab Goblin</strong><small>Keep the tabs you need</small></div>
+    <div id="mood" class="mood">Calm</div>
+  </header>
+  <main>
+    <section class="summary">
+      <div><span id="totalCount" class="big">0</span><span class="label">open tabs</span></div>
+      <div class="sleep-info"><strong><span id="sleepCount">0</span> asleep</strong><small id="keepCount">0 protected</small></div>
+      <div class="goblin" aria-hidden="true"><span class="eye eye-left"></span><span class="eye eye-right"></span></div>
+    </section>
+    <section class="controls">
+      <label for="ageFilter">Sort tabs ignored for</label>
+      <select id="ageFilter"><option value="1">at least 1 day</option><option value="3" selected>at least 3 days</option><option value="7">at least 7 days</option><option value="30">at least 30 days</option></select>
+      <button id="sleepAll" class="feed">Feed the goblin <span>→</span></button>
+    </section>
+    <div id="notice" class="notice" aria-live="polite"></div>
+    <section class="tab-section">
+      <div class="list-heading"><h2>Tabs by last use</h2><span id="visibleCount">0 listed</span></div>
+      <div id="tabs" class="tabs-list"></div>
+      <div id="empty" class="empty" hidden>No open tabs in this window.</div>
+    </section>
+    <section class="session-section">
+      <div class="session-head"><div><h2>Session</h2><p id="sessionLabel">No saved session yet</p></div><button id="saveSession" class="save">Save session</button></div>
+      <button id="restoreSession" class="restore" disabled>Restore saved session</button>
+    </section>
+  </main>
+  <footer>Sleeping frees memory. Clicking a sleeping tab wakes it.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

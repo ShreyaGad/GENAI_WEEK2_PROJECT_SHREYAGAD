@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Goblin",
+  "version": "1.0.0",
+  "description": "Sort idle tabs, sleep them without closing, protect important tabs, and save sessions.",
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_title": "Tab Goblin",
+    "default_popup": "popup.html"
+  }
+}

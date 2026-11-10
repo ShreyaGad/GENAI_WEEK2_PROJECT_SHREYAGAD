@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ByteCafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap">
+<style>
+:root{--blue:#2236d9;--ink:#0f1537;--lemon:#ffe14a;--chalk:#f5f6ff;--tom:#e8452c;--line:#c9cdf2;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--chalk:#0f1537;--ink:#f1f2ff;--card:#171f4d;--line:#3a4590;--tom:#ff7a62}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--chalk);color:var(--ink);font:17px/1.5 "Bricolage Grotesque","Segoe UI",system-ui,sans-serif}
+a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--tom);outline-offset:3px}
+.hero{background:var(--blue);color:#fff;padding:clamp(40px,8vw,96px) 6vw 56px}
+.hero-in{max-width:1080px;margin:auto;display:grid;gap:28px}
+h1{margin:0;font-size:clamp(64px,17vw,190px);line-height:.88;letter-spacing:-.04em;font-weight:800;text-shadow:.05em .05em 0 var(--ink);color:var(--lemon)}
+.tag{font-size:clamp(22px,3.4vw,34px);font-weight:700;margin:0;max-width:18ch;line-height:1.15}
+.sub{margin:0;max-width:46ch;opacity:.9}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{background:var(--lemon);color:#0f1537;font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px}
+.btn:hover{background:#fff}
+.special{background:#fff;color:#0f1537;padding:12px 20px;border-radius:12px 12px 12px 0;font-weight:700;margin:0;transform:rotate(-1.5deg)}
+nav{position:sticky;top:0;z-index:5;background:var(--chalk);border-bottom:2px solid var(--ink);overflow-x:auto;white-space:nowrap}
+nav ul{list-style:none;margin:0 auto;padding:10px 6vw;display:flex;gap:8px;max-width:1080px}
+nav a{display:block;padding:6px 16px;border:2px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+main{max-width:1080px;margin:auto;padding:36px 6vw 24px}
+main>h2{font-size:clamp(34px,6vw,56px);margin:0 0 24px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
+section{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:22px 24px;box-shadow:6px 6px 0 var(--blue)}
+section h3{margin:0 0 12px;font-size:28px;letter-spacing:-.01em}
+ul.items{list-style:none;margin:0;padding:0}
+.items li{display:flex;align-items:baseline;gap:8px;padding:7px 0}
+.items li::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--line);min-width:16px}
+.items .n{order:0}.items .p{order:2;font-weight:800;color:var(--tom);font-variant-numeric:tabular-nums}
+footer{background:var(--ink);color:var(--chalk);margin-top:40px;padding:40px 6vw}
+@media(prefers-color-scheme:dark){footer{background:#080c24;color:#f1f2ff}}
+footer div{max-width:1080px;margin:auto}footer h2{margin:0 0 8px;color:var(--lemon)}footer p{margin:4px 0}
+@media(max-width:520px){section{padding:18px}}
+</style></head><body>
+<header class="hero"><div class="hero-in">
+<h1>ByteCafe</h1>
+<p class="tag">Fresh food, fast bites, right on campus.</p>
+<p class="sub">The college canteen for meals, snacks, shakes and everything in between.</p>
+<div class="row"><a class="btn" href="#menu">See the menu</a><p class="special">Today’s special: Veg Thali, ₹80</p></div>
+</div></header>
+<nav aria-label="Menu categories"><ul>
+<li><a href="#starters">Starters</a></li><li><a href="#chinese">Chinese</a></li><li><a href="#meals">Meals</a></li><li><a href="#bakery">Bakery</a></li><li><a href="#snacks">Snacks</a></li><li><a href="#milkshakes">Milkshakes</a></li><li><a href="#drinks">Cold Drinks</a></li></ul></nav>
+<main><h2 id="menu">Menu</h2><div class="grid">
+<section id="starters"><h3>Starters</h3><ul class="items">
+<li><span class="n">Paneer Tikka</span><span class="p">₹110</span></li>
+<li><span class="n">Veg Spring Rolls</span><span class="p">₹70</span></li>
+<li><span class="n">Chicken Lollipop</span><span class="p">₹130</span></li>
+<li><span class="n">Crispy Corn</span><span class="p">₹80</span></li>
+<li><span class="n">French Fries</span><span class="p">₹60</span></li>
+</ul></section>
+<section id="chinese"><h3>Chinese</h3><ul class="items">
+<li><span class="n">Veg Fried Rice</span><span class="p">₹80</span></li>
+<li><span class="n">Veg Hakka Noodles</span><span class="p">₹80</span></li>
+<li><span class="n">Chicken Noodles</span><span class="p">₹100</span></li>
+<li><span class="n">Gobi Manchurian</span><span class="p">₹90</span></li>
+<li><span class="n">Chilli Paneer</span><span class="p">₹110</span></li>
+</ul></section>
+<section id="meals"><h3>Meals</h3><ul class="items">
+<li><span class="n">Veg Thali</span><span class="p">₹80</span></li>
+<li><span class="n">Rajma Rice</span><span class="p">₹70</span></li>
+<li><span class="n">Curd Rice</span><span class="p">₹60</span></li>
+<li><span class="n">Egg Curry Meals</span><span class="p">₹90</span></li>
+<li><span class="n">Chicken Biryani</span><span class="p">₹120</span></li>
+</ul></section>
+<section id="bakery"><h3>Bakery</h3><ul class="items">
+<li><span class="n">Veg Puff</span><span class="p">₹25</span></li>
+<li><span class="n">Egg Puff</span><span class="p">₹30</span></li>
+<li><span class="n">Chocolate Muffin</span><span class="p">₹40</span></li>
+<li><span class="n">Butter Croissant</span><span class="p">₹50</span></li>
+<li><span class="n">Fudge Brownie</span><span class="p">₹60</span></li>
+</ul></section>
+<section id="snacks"><h3>Snacks</h3><ul class="items">
+<li><span class="n">Samosa</span><span class="p">₹15</span></li>
+<li><span class="n">Potato Chips</span><span class="p">₹20</span></li>
+<li><span class="n">Veg Sandwich</span><span class="p">₹50</span></li>
+<li><span class="n">Masala Noodles</span><span class="p">₹50</span></li>
+<li><span class="n">Cheese Nachos</span><span class="p">₹70</span></li>
+</ul></section>
+<section id="milkshakes"><h3>Milkshakes</h3><ul class="items">
+<li><span class="n">Chocolate Shake</span><span class="p">₹70</span></li>
+<li><span class="n">Strawberry Shake</span><span class="p">₹70</span></li>
+<li><span class="n">Mango Shake</span><span class="p">₹70</span></li>
+<li><span class="n">Banana Shake</span><span class="p">₹60</span></li>
+<li><span class="n">Cookie Crumble Shake</span><span class="p">₹90</span></li>
+</ul></section>
+<section id="drinks"><h3>Cold Drinks</h3><ul class="items">
+<li><span class="n">Cola</span><span class="p">₹30</span></li>
+<li><span class="n">Lemon Soda</span><span class="p">₹30</span></li>
+<li><span class="n">Orange Soda</span><span class="p">₹30</span></li>
+<li><span class="n">Iced Tea</span><span class="p">₹40</span></li>
+<li><span class="n">Cold Coffee</span><span class="p">₹60</span></li>
+<li><span class="n">Water Bottle</span><span class="p">₹20</span></li>
+</ul></section>
+</div></main>
+<footer><div><h2>Visit us</h2><p>Open Monday to Saturday, 8:00 AM to 6:00 PM</p><p>Ground floor, Student Block</p></div></footer>
+</body></html>

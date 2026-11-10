@@ -1,0 +1,4 @@
+interface:
+  display_name: "One Page Revision"
+  short_description: "Turn a chapter into an exam-focused one-page revision sheet"
+  default_prompt: "Use $one-page-revision to turn this chapter into a one-page revision sheet."

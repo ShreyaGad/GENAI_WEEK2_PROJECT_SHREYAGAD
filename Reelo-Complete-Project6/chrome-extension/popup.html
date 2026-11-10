@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <title>Reelo</title>
+</head>
+<body>
+  <h1>💜 Reelo</h1>
+  <p class="subtitle">Your tiny scroll buddy</p>
+  <section aria-label="Today's count">
+    <span aria-hidden="true">👾</span>
+    <strong id="count">0</strong>
+    <small>reels &amp; shorts today</small>
+  </section>
+  <p id="mood">Ready to munch! ✨</p>
+  <label><input id="enabled" type="checkbox"> Show Reelo on supported pages</label>
+  <label><input id="automatic" type="checkbox"> Estimate counts from scrolling</label>
+  <h2>Last 7 days</h2>
+  <div id="history" aria-live="polite"></div>
+  <p class="note">Scroll counts are estimates. They do not confirm a video was watched. Tap Reelo to add a count manually. Your data stays in this browser.</p>
+  <script src="popup.js"></script>
+</body>
+</html>

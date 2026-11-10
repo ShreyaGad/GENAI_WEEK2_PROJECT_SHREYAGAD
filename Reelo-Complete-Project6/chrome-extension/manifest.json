@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Reelo — Floating Reel Monster",
+  "version": "1.1.0",
+  "description": "A local-first floating purple buddy for Instagram Reels and YouTube Shorts.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://instagram.com/*",
+    "https://www.youtube.com/*",
+    "https://youtube.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://instagram.com/*",
+        "https://www.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_popup": "popup.html" }
+}

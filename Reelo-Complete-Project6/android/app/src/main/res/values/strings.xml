@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Reelo</string>
+    <string name="accessibility_description">Counts likely short-video scrolls in Instagram and YouTube. Reelo uses event metadata only and does not read screen text.</string>
+</resources>

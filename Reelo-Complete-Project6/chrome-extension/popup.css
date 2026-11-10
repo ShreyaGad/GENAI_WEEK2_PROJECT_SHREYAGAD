@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { width: 310px; padding: 18px; margin: 0; background: #fbf6ff; color: #32134d; font: 14px Arial, sans-serif; }
+h1 { color: #7928ca; margin: 0; font-size: 25px; }
+.subtitle { margin: 4px 0 14px; color: #6c5a78; }
+section { min-height: 92px; background: #efe0ff; padding: 12px 14px; border-radius: 16px; display: grid; grid-template-columns: 60px 1fr; align-content: center; }
+section span { grid-row: span 2; align-self: center; font-size: 43px; }
+section strong { font-size: 36px; line-height: 1.05; color: #7928ca; }
+section small, .note { font-size: 11px; }
+#mood, h2 { color: #7928ca; }
+#mood { margin: 12px 0; font-weight: 700; }
+label { display: flex; align-items: flex-start; gap: 7px; margin: 10px 0; line-height: 1.35; }
+input { accent-color: #7928ca; margin: 1px 0 0; }
+h2 { margin: 16px 0 7px; font-size: 16px; }
+#history { line-height: 1.7; }
+#history div { display: flex; justify-content: space-between; }
+#history strong { color: #7928ca; }
+.note { color: #786b80; border-top: 1px solid #e4d5f1; padding-top: 9px; margin: 12px 0 0; line-height: 1.5; }
